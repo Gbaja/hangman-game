@@ -1,0 +1,7 @@
+// sass --watch master.scss:master.css --style compressed
+
+$primary-color: green;
+
+body {
+	background-color: $primary-color;
+}
