@@ -52,12 +52,23 @@ const fillInAnswer = (placeholder_word, placeholder_letter) => {
     let letterPosition = "";
     letterPosition = placeholder_word[i];
     letterPosition === placeholder_letter ? guesses_input[i].value = placeholder_letter : false;
-
   })
+  checkIsCorrectAnswer() ? (gameover_para.textContent = `You guessed right, the correct word is ${word_to_guess}`,
+  live_para.style.display = "none",
+  playarea.style.display = "none") : false
 }
 
 const gameOver = (live) => {
   live === 6 ?  (gameover_para.textContent = "GAME OVER! The word is " + word_to_guess,
   live_para.style.display = "none",
   playarea.style.display = "none"): false;
+}
+
+const checkIsCorrectAnswer= ()=>{
+    for(var y = 0; y < guesses_input.length; y++){
+        if(guesses_input[y].value == ""){
+            return false;
+        }
+    }
+    return true;
 }
