@@ -1,95 +1,118 @@
 // sass --watch master.scss:master.css --style compressed
-
-$primary-color: green;
+$main-color: #000;
+$text-color: rebeccapurple;
 
 body {
-	background-color: $primary-color;
+	background-image: url('./assets/paperbackground.jpg');
 }
-.used{
+@mixin bodyPartShape($width, $height, $position, $top, $left) {
+	width: $width;
+	height: $height;
+	position: $position;
+	top: $top;
+	left: $left;
+}
+
+%buttons-styles {
+	background: $text-color;
+	padding: 1rem;
+	border-radius: 1rem;
+	color: white;
+	font-size: 1.5rem;
+}
+.game-status,
+.game-features{
+	display: none;
+}
+.play__button {
+	@extend %buttons-styles;
+}
+
+.buttons__letters {
+	@extend %buttons-styles;
+}
+
+.buttons__new-word {
+	@extend %buttons-styles;
+}
+
+.buttons__hint {
+	@extend %buttons-styles;
+}
+
+.used {
 	pointer-events: none;
 	background-color: red;
 }
-.gameview__hangman {
-  width: 250px;
-  height: 250px;
-  position: relative;
-  left: 10%;
+.game-header__title{
+	text-align: center;
+	color: $text-color;
+}
+.game-intro{
+	text-align: center;
+	.game-intro__text{
+		font-size: 1.5rem;
+		color: $text-color;
+	}
 }
 
-.gameview__hangman__bodyPart {
-  display: none;
+.hangman {
+	width: 250px;
+	height: 250px;
+	position: relative;
+	left: 10%;
 }
 
-.gameview__hangman__hanger {
-  width: 150px;
-  height: 200px;
-  border: 10px solid black;
-  border-right: none;
-  position: absolute;
+.hangman__bodyPart {
+	display: none;
 }
 
-.gameview__hangman__hanger:after {
-  content: "";
-  width: 10px;
-  height: 30px;
-  background-color: black;
-  position: absolute;
-  right: 0px;
+.hangman__hanger {
+	width: 150px;
+	height: 200px;
+	border: 10px solid $main-color;
+	border-right: none;
+	position: absolute;
 }
 
-.gameview__hangman__head {
-  width: 35px;
-  height: 35px;
-  border: 5px solid black;
-  border-radius: 100%;
-  position: relative;
-  top: 39px;
-  left: 132px;
+.hangman__hanger:after {
+	content: "";
+	width: 10px;
+	height: 30px;
+	background-color: $main-color;
+	position: absolute;
+	right: 0;
 }
 
-.gameview__hangman__body {
-  width: 5px;
-  height: 70px;
-  background-color: black;
-  position: absolute;
-  top: 80px;
-  left: 152px;
+.hangman__head {
+	@include bodyPartShape(35px, 35px, absolute, 39px, 132px);
+	border: 5px solid $main-color;
+	border-radius: 100%;
 }
 
-.gameview__hangman__leg1 {
-  width: 5px;
-  height: 50px;
-  background-color: black;
-  position: absolute;
-  top: 140px;
-  left: 140px;
-  transform: rotate(30deg);
+.hangman__body {
+	@include bodyPartShape(5px, 70px, absolute, 80px, 152px);
+	background-color: $main-color;
 }
 
-.gameview__hangman__leg2 {
-  width: 5px;
-  height: 50px;
-  background-color: black;
-  position: absolute;
-  top: 140px;
-  left: 165px;
-  transform: rotate(-30deg);
+.hangman__leg1 {
+	@include bodyPartShape(5px, 50px, absolute, 140px, 140px);
+	background-color: $main-color;
+	transform: rotate(30deg);
 }
 
-.gameview__hangman__hand1 {
-  width: 50px;
-  height: 5px;
-  background-color: black;
-  position: absolute;
-  top: 110px;
-  left: 155px;
+.hangman__leg2 {
+	@include bodyPartShape(5px, 50px, absolute, 140px, 165px);
+	background-color: $main-color;
+	transform: rotate(-30deg);
 }
 
-.gameview__hangman__hand2 {
-  width: 50px;
-  height: 5px;
-  background-color: black;
-  position: absolute;
-  top: 110px;
-  left: 110px;
+.hangman__hand1 {
+	@include bodyPartShape(50px, 5px, absolute, 110px, 155px);
+	background-color: $main-color;
+}
+
+.hangman__hand2 {
+	@include bodyPartShape(50px, 5px, absolute, 110px, 110px);
+	background-color: $main-color;
 }
