@@ -11,61 +11,62 @@
 </head>
 
 <body>
-  <header>
-    <h1>Hangman Game</h1>
+  <header class="game-header">
+    <h1 class="game-header__title">Hangman Game</h1>
   </header>
-    <input type="button" id="start_game_btn" value="Play">
-    <p id="gameover_para"></p>
-  <section id="playarea">
-    <section class="" id="list_container">
-        <p id="live_para"></p>
-    </section>
-  <section class="gameview__hangman">
-      <div class="gameview__hangman__hanger"></div>
-      <div class="gameview__hangman__bodyPart gameview__hangman__head" id="hang"></div>
-      <div class="gameview__hangman__bodyPart gameview__hangman__body" id="hang2"></div>
-      <div class="gameview__hangman__bodyPart gameview__hangman__hand1" id="hang3"></div>
-      <div class="gameview__hangman__bodyPart gameview__hangman__hand2" id="hang4"></div>
-      <div class="gameview__hangman__bodyPart gameview__hangman__leg1" id="hang5"></div>
-      <div class="gameview__hangman__bodyPart gameview__hangman__leg2" id="hang6"></div>
-    </section>
-      <section class="gameview__buttons-container">
-        <div class="gameview__buttons-all">
-          <button class="gameview__button-letter alphabets" onclick="alphabets_click_func(event)" type="button" value="A">A</button>
-          <button class="gameview__button-letter alphabets" onclick="alphabets_click_func(event)" type="button" value="B">B</button>
-          <button class="gameview__button-letter alphabets" onclick="alphabets_click_func(event)" type="button" value="C">C</button>
-          <button class="gameview__button-letter alphabets"  onclick="alphabets_click_func(event)" type="button" value="D">D</button>
-          <button class="gameview__button-letter alphabets" onclick="alphabets_click_func(event)" type="button" value="E">E</button>
-          <button class="gameview__button-letter alphabets" onclick="alphabets_click_func(event)" type="button" value="F">F</button>
-          <button class="gameview__button-letter alphabets" onclick="alphabets_click_func(event)" type="button" value="G">G</button>
-          <button class="gameview__button-letter alphabets" onclick="alphabets_click_func(event)" type="button" value="H">H</button>
-          <button class="gameview__button-letter alphabets" onclick="alphabets_click_func(event)" type="button" value="I">I</button>
-          <button class="gameview__button-letter alphabets" onclick="alphabets_click_func(event)" type="button" value="J">J</button>
-          <button class="gameview__button-letter alphabets" onclick="alphabets_click_func(event)" type="button" value="K">K</button>
-          <button class="gameview__button-letter alphabets" onclick="alphabets_click_func(event)" type="button" value="L">L</button>
-          <button class="gameview__button-letter alphabets" onclick="alphabets_click_func(event)" type="button" value="M">M</button>
-          <button class="gameview__button-letter alphabets" onclick="alphabets_click_func(event)" type="button" value="N">N</button>
-          <button class="gameview__button-letter alphabets" onclick="alphabets_click_func(event)" type="button" value="O">O</button>
-          <button class="gameview__button-letter alphabets" onclick="alphabets_click_func(event)" type="button" value="P">P</button>
-          <button class="gameview__button-letter alphabets" onclick="alphabets_click_func(event)" type="button" value="Q">Q</button>
-          <button class="gameview__button-letter alphabets" onclick="alphabets_click_func(event)" type="button" value="R">R</button>
-          <button class="gameview__button-letter alphabets" onclick="alphabets_click_func(event)" type="button" value="S">S</button>
-          <button class="gameview__button-letter alphabets" onclick="alphabets_click_func(event)" type="button" value="T">T</button>
-          <button class="gameview__button-letter alphabets" onclick="alphabets_click_func(event)" type="button" value="U">U</button>
-          <button class="gameview__button-letter alphabets" onclick="alphabets_click_func(event)" type="button" value="V">V</button>
-          <button class="gameview__button-letter alphabets" onclick="alphabets_click_func(event)" type="button" value="W">W</button>
-          <button class="gameview__button-letter alphabets" onclick="alphabets_click_func(event)" type="button" value="X">X</button>
-          <button class="gameview__button-letter alphabets" onclick="alphabets_click_func(event)" type="button" value="Y">Y</button>
-          <button class="gameview__button-letter alphabets" onclick="alphabets_click_func(event)" type="button" value="Z">Z</button>
-        </div>
-        <div class="gameview__buttons-functionality">
-          <button class="gameview__button-new-word" type="button" name="newword">New-word</button>
-          <button class="gameview__button-hint" type="button" name="hint">Hint</button>
-        </div>
-
+  <section class="game-intro">
+    <p class="game-intro__text"> Guess the word! Click the alphabets buttons to choose a letter. You have 6 lives, each time you guess the wrong letter one live is deducted and a new part is added to the hangman. </p>
+    <input type="button" id="start_game_btn" value="Play" class="play__button">
   </section>
-</section>
-    <script type="text/javascript" src="./build/public/index.js"></script>
+    <p id="gameover_para"></p>
+  <section class="game-features">
+      <p id="live_para"></p>
+    <section class="guesses" id="inputs_container">
+    </section>
+    <section class="hangman no-play">
+      <div class="hangman__hanger"></div>
+      <div class="hangman__bodyPart hangman__head" id="hang"></div>
+      <div class="hangman__bodyPart hangman__body" id="hang2"></div>
+      <div class="hangman__bodyPart hangman__hand1" id="hang3"></div>
+      <div class="hangman__bodyPart hangman__hand2" id="hang4"></div>
+      <div class="hangman__bodyPart hangman__leg1" id="hang5"></div>
+      <div class="hangman__bodyPart hangman__leg2" id="hang6"></div>
+        <p id="gameover_para"></p>
+    </section>
+    <section class="buttons no-play" id="alphabets_btns">
+      <div class="buttons__container">
+        <button class="buttons__letters alphabets" onclick="alphabets_click_func(event)" type="button" value="A">A</button>
+        <button class="buttons__letters alphabets" onclick="alphabets_click_func(event)" type="button" value="B">B</button>
+        <button class="buttons__letters alphabets" onclick="alphabets_click_func(event)" type="button" value="C">C</button>
+        <button class="buttons__letters alphabets" onclick="alphabets_click_func(event)" type="button" value="D">D</button>
+        <button class="buttons__letters alphabets" onclick="alphabets_click_func(event)" type="button" value="E">E</button>
+        <button class="buttons__letters alphabets" onclick="alphabets_click_func(event)" type="button" value="F">F</button>
+        <button class="buttons__letters alphabets" onclick="alphabets_click_func(event)" type="button" value="G">G</button>
+        <button class="buttons__letters alphabets" onclick="alphabets_click_func(event)" type="button" value="H">H</button>
+        <button class="buttons__letters alphabets" onclick="alphabets_click_func(event)" type="button" value="I">I</button>
+        <button class="buttons__letters alphabets" onclick="alphabets_click_func(event)" type="button" value="J">J</button>
+        <button class="buttons__letters alphabets" onclick="alphabets_click_func(event)" type="button" value="K">K</button>
+        <button class="buttons__letters alphabets" onclick="alphabets_click_func(event)" type="button" value="L">L</button>
+        <button class="buttons__letters alphabets" onclick="alphabets_click_func(event)" type="button" value="M">M</button>
+        <button class="buttons__letters alphabets" onclick="alphabets_click_func(event)" type="button" value="N">N</button>
+        <button class="buttons__letters alphabets" onclick="alphabets_click_func(event)" type="button" value="O">O</button>
+        <button class="buttons__letters alphabets" onclick="alphabets_click_func(event)" type="button" value="P">P</button>
+        <button class="buttons__letters alphabets" onclick="alphabets_click_func(event)" type="button" value="Q">Q</button>
+        <button class="buttons__letters alphabets" onclick="alphabets_click_func(event)" type="button" value="R">R</button>
+        <button class="buttons__letters alphabets" onclick="alphabets_click_func(event)" type="button" value="S">S</button>
+        <button class="buttons__letters alphabets" onclick="alphabets_click_func(event)" type="button" value="T">T</button>
+        <button class="buttons__letters alphabets" onclick="alphabets_click_func(event)" type="button" value="U">U</button>
+        <button class="buttons__letters alphabets" onclick="alphabets_click_func(event)" type="button" value="V">V</button>
+        <button class="buttons__letters alphabets" onclick="alphabets_click_func(event)" type="button" value="W">W</button>
+        <button class="buttons__letters alphabets" onclick="alphabets_click_func(event)" type="button" value="X">X</button>
+        <button class="buttons__letters alphabets" onclick="alphabets_click_func(event)" type="button" value="Y">Y</button>
+        <button class="buttons__letters alphabets" onclick="alphabets_click_func(event)" type="button" value="Z">Z</button>
+        <button class="buttons__hint" type="button" name="hint">Hint</button>
+      </div>
+    </section>
+  </section>
+<!-- <button type="button" class="hangman__replay no-play" id="replay_btn">Play again</button> -->
+  <script type="text/javascript" src="./build/public/index.js"></script>
 </body>
 
 </html>

@@ -1,4 +1,5 @@
 // sass --watch master.scss:master.css --style compressed
+//modularise
 $main-color: #000;
 $text-color: rebeccapurple;
 
@@ -18,12 +19,17 @@ body {
 	padding: 1rem;
 	border-radius: 1rem;
 	color: white;
-	font-size: 1.5rem;
+	font-size: 1rem;
 }
-.game-status,
-.game-features{
+
+.play {
+	display: block;
+}
+
+.no-play {
 	display: none;
 }
+
 .play__button {
 	@extend %buttons-styles;
 }
@@ -44,21 +50,36 @@ body {
 	pointer-events: none;
 	background-color: red;
 }
-.game-header__title{
+
+.game-header__title {
 	text-align: center;
 	color: $text-color;
 }
-.game-intro{
+
+.game-intro {
 	text-align: center;
-	.game-intro__text{
+
+	.game-intro__text {
 		font-size: 1.5rem;
 		color: $text-color;
 	}
 }
 
+.guesses {
+	text-align: center;
+
+	.guesses_input {
+		border: none;
+		border-bottom: 1px solid black;
+		outline: none;
+		background-color: inherit;
+		width: 3rem;
+		margin-right: 0.3rem;
+	}
+}
+
 .hangman {
-	width: 250px;
-	height: 250px;
+	height: 155px;
 	position: relative;
 	left: 10%;
 }
@@ -68,16 +89,16 @@ body {
 }
 
 .hangman__hanger {
-	width: 150px;
-	height: 200px;
-	border: 10px solid $main-color;
+	width: 100px;
+	height: 130px;
+	border: 5px solid $main-color;
 	border-right: none;
 	position: absolute;
 }
 
 .hangman__hanger:after {
 	content: "";
-	width: 10px;
+	width: 5px;
 	height: 30px;
 	background-color: $main-color;
 	position: absolute;
@@ -85,34 +106,83 @@ body {
 }
 
 .hangman__head {
-	@include bodyPartShape(35px, 35px, absolute, 39px, 132px);
-	border: 5px solid $main-color;
+	@include bodyPartShape(20px, 20px, absolute, 33px, 90px);
+	border: 3px solid $main-color;
 	border-radius: 100%;
 }
 
 .hangman__body {
-	@include bodyPartShape(5px, 70px, absolute, 80px, 152px);
+	@include bodyPartShape(3px, 30px, absolute, 59px, 101px);
 	background-color: $main-color;
 }
 
 .hangman__leg1 {
-	@include bodyPartShape(5px, 50px, absolute, 140px, 140px);
+	@include bodyPartShape(3px, 32px, absolute, 86px, 93px);
 	background-color: $main-color;
 	transform: rotate(30deg);
 }
 
 .hangman__leg2 {
-	@include bodyPartShape(5px, 50px, absolute, 140px, 165px);
+	@include bodyPartShape(3px, 32px, absolute, 86px, 110px);
 	background-color: $main-color;
 	transform: rotate(-30deg);
 }
 
 .hangman__hand1 {
-	@include bodyPartShape(50px, 5px, absolute, 110px, 155px);
+	@include bodyPartShape(30px, 3px, absolute, 86px, 104px);
 	background-color: $main-color;
 }
 
 .hangman__hand2 {
-	@include bodyPartShape(50px, 5px, absolute, 110px, 110px);
+	@include bodyPartShape(30px, 3px, absolute, 86px, 71px);
 	background-color: $main-color;
+}
+@media screen and (min-width: 600px) {
+	%buttons-styles {
+		background: $text-color;
+		padding: 1rem;
+		border-radius: 1rem;
+		color: white;
+		font-size: 1.5rem;
+	}
+
+	.hangman {
+		height: 250px;
+	}
+
+	.hangman__hanger {
+		width: 150px;
+		height: 200px;
+		border: 10px solid $main-color;
+		border-right: none;
+	}
+
+	.hangman__hanger:after {
+		width: 10px;
+	}
+
+	.hangman__head {
+		@include bodyPartShape(35px, 35px, absolute, 39px, 132px);
+		border: 5px solid $main-color;
+	}
+
+	.hangman__body {
+		@include bodyPartShape(5px, 70px, absolute, 80px, 152px);
+	}
+
+	.hangman__leg1 {
+		@include bodyPartShape(5px, 50px, absolute, 140px, 140px);
+	}
+
+	.hangman__leg2 {
+		@include bodyPartShape(5px, 50px, absolute, 140px, 165px);
+	}
+
+	.hangman__hand1 {
+		@include bodyPartShape(50px, 5px, absolute, 110px, 155px);
+	}
+
+	.hangman__hand2 {
+		@include bodyPartShape(50px, 5px, absolute, 110px, 110px);
+	}
 }
