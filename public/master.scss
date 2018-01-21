@@ -33,7 +33,9 @@ body {
 .play__button {
 	@extend %buttons-styles;
 }
-
+.buttons{
+	text-align: center;
+}
 .buttons__letters {
 	@extend %buttons-styles;
 }
@@ -184,5 +186,9 @@ body {
 
 	.hangman__hand2 {
 		@include bodyPartShape(50px, 5px, absolute, 110px, 110px);
+	}
+	.used {
+		pointer-events: none;
+		background-color: red;
 	}
 }
