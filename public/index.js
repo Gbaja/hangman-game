@@ -12,7 +12,7 @@ const replay_btn = document.getElementById('replay_btn');
 let word_to_guess;
 let num_of_lives = 0;
 
-const apiRequestForWord = () => fetch(`http://api.wordnik.com:80/v4/words.json/randomWord?hasDictionaryDef=true&minCorpusCount=0&maxCorpusCount=-1&minDictionaryCount=1&maxDictionaryCount=-1&minLength=5&maxLength=-1&api_key=691eca87b094010c8a00a0fa35204cc24a6f373ce37d18c5c`);
+const apiRequestForWord = () => fetch(`https://api.wordnik.com:80/v4/words.json/randomWord?hasDictionaryDef=true&minCorpusCount=0&maxCorpusCount=-1&minDictionaryCount=1&maxDictionaryCount=-1&minLength=5&maxLength=-1&api_key=691eca87b094010c8a00a0fa35204cc24a6f373ce37d18c5c`);
 
 const requestResultAction = () => {
   apiRequestForWord().then((response) => {
