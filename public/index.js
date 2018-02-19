@@ -13,9 +13,7 @@ let word_to_guess;
 let num_of_lives = 0;
 
 const apiRequestForWord = () =>
-  fetch(
-    `http://api.wordnik.com:80/v4/words.json/randomWord?hasDictionaryDef=true&minCorpusCount=0&maxCorpusCount=-1&minDictionaryCount=1&maxDictionaryCount=-1&minLength=5&maxLength=-1&api_key=691eca87b094010c8a00a0fa35204cc24a6f373ce37d18c5c`
-  );
+  fetch(`https://locationsng-api.herokuapp.com/api/v1/states`);
 
 const requestResultAction = () => {
   apiRequestForWord()
@@ -23,7 +21,9 @@ const requestResultAction = () => {
       return response.json();
     })
     .then(response_text => {
-      return response_text.word;
+      const randomNumber = Math.floor(Math.random() * response_text.length);
+      console.log(response_text[randomNumber].name);
+      return response_text[randomNumber].name;
     })
     .then(word => {
       word_to_guess = word.toUpperCase();
