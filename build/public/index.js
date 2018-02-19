@@ -15,14 +15,16 @@ var word_to_guess = void 0;
 var num_of_lives = 0;
 
 var apiRequestForWord = function apiRequestForWord() {
-  return fetch("http://api.wordnik.com:80/v4/words.json/randomWord?hasDictionaryDef=true&minCorpusCount=0&maxCorpusCount=-1&minDictionaryCount=1&maxDictionaryCount=-1&minLength=5&maxLength=-1&api_key=691eca87b094010c8a00a0fa35204cc24a6f373ce37d18c5c");
+  return fetch("https://locationsng-api.herokuapp.com/api/v1/states");
 };
 
 var requestResultAction = function requestResultAction() {
   apiRequestForWord().then(function (response) {
     return response.json();
   }).then(function (response_text) {
-    return response_text.word;
+    var randomNumber = Math.floor(Math.random() * response_text.length);
+    console.log(response_text[randomNumber].name);
+    return response_text[randomNumber].name;
   }).then(function (word) {
     word_to_guess = word.toUpperCase();
     game_intro.classList.add("no-play");
