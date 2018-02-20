@@ -4,191 +4,197 @@ $main-color: #000;
 $text-color: rebeccapurple;
 
 body {
-	background-image: url('./assets/paperbackground.jpg');
+  background-image: url("./assets/paperbackground.jpg");
+}
+p {
+  font-size: 1.5rem;
+  color: red;
+  text-align: center;
 }
 @mixin bodyPartShape($width, $height, $position, $top, $left) {
-	width: $width;
-	height: $height;
-	position: $position;
-	top: $top;
-	left: $left;
+  width: $width;
+  height: $height;
+  position: $position;
+  top: $top;
+  left: $left;
 }
 
 %buttons-styles {
-	background: $text-color;
-	padding: 1rem;
-	border-radius: 1rem;
-	color: white;
-	font-size: 1rem;
+  background: $text-color;
+  padding: 1rem;
+  border-radius: 1rem;
+  color: white;
+  font-size: 1rem;
 }
 
 .play {
-	display: block;
+  display: block;
 }
 
 .no-play {
-	display: none;
+  display: none;
 }
 
 .play__button {
-	@extend %buttons-styles;
+  @extend %buttons-styles;
 }
-.buttons{
-	text-align: center;
+.buttons {
+  text-align: center;
 }
 .buttons__letters {
-	@extend %buttons-styles;
+  @extend %buttons-styles;
 }
 
 .buttons__new-word {
-	@extend %buttons-styles;
+  @extend %buttons-styles;
 }
 
 .buttons__hint {
-	@extend %buttons-styles;
+  @extend %buttons-styles;
 }
 
 .used {
-	pointer-events: none;
-	background-color: red;
+  pointer-events: none;
+  background-color: red;
 }
 
 .game-header__title {
-	text-align: center;
-	color: $text-color;
+  text-align: center;
+  color: $text-color;
 }
 
 .game-intro {
-	text-align: center;
+  text-align: center;
 
-	.game-intro__text {
-		font-size: 1.5rem;
-		color: $text-color;
-	}
+  .game-intro__text {
+    font-size: 1.5rem;
+    color: $text-color;
+  }
 }
 
 .guesses {
-	text-align: center;
+  text-align: center;
 
-	.guesses_input {
-		border: none;
-		border-bottom: 1px solid black;
-		outline: none;
-		background-color: inherit;
-		width: 3rem;
-		margin-right: 0.3rem;
-	}
+  .guesses_input {
+    border: none;
+    border-bottom: 1px solid black;
+    outline: none;
+    background-color: inherit;
+    width: 3rem;
+    margin-right: 0.3rem;
+    text-align: center;
+  }
 }
 
 .hangman {
-	height: 155px;
-	position: relative;
-	left: 10%;
+  height: 155px;
+  position: relative;
+  left: 10%;
 }
 
 .hangman__bodyPart {
-	display: none;
+  display: none;
 }
 
 .hangman__hanger {
-	width: 100px;
-	height: 130px;
-	border: 5px solid $main-color;
-	border-right: none;
-	position: absolute;
+  width: 100px;
+  height: 130px;
+  border: 5px solid $main-color;
+  border-right: none;
+  position: absolute;
 }
 
 .hangman__hanger:after {
-	content: "";
-	width: 5px;
-	height: 30px;
-	background-color: $main-color;
-	position: absolute;
-	right: 0;
+  content: "";
+  width: 5px;
+  height: 30px;
+  background-color: $main-color;
+  position: absolute;
+  right: 0;
 }
 
 .hangman__head {
-	@include bodyPartShape(20px, 20px, absolute, 33px, 90px);
-	border: 3px solid $main-color;
-	border-radius: 100%;
+  @include bodyPartShape(20px, 20px, absolute, 33px, 90px);
+  border: 3px solid $main-color;
+  border-radius: 100%;
 }
 
 .hangman__body {
-	@include bodyPartShape(3px, 30px, absolute, 59px, 101px);
-	background-color: $main-color;
+  @include bodyPartShape(3px, 30px, absolute, 59px, 101px);
+  background-color: $main-color;
 }
 
 .hangman__leg1 {
-	@include bodyPartShape(3px, 32px, absolute, 86px, 93px);
-	background-color: $main-color;
-	transform: rotate(30deg);
+  @include bodyPartShape(3px, 32px, absolute, 86px, 93px);
+  background-color: $main-color;
+  transform: rotate(30deg);
 }
 
 .hangman__leg2 {
-	@include bodyPartShape(3px, 32px, absolute, 86px, 110px);
-	background-color: $main-color;
-	transform: rotate(-30deg);
+  @include bodyPartShape(3px, 32px, absolute, 86px, 110px);
+  background-color: $main-color;
+  transform: rotate(-30deg);
 }
 
 .hangman__hand1 {
-	@include bodyPartShape(30px, 3px, absolute, 86px, 104px);
-	background-color: $main-color;
+  @include bodyPartShape(30px, 3px, absolute, 86px, 104px);
+  background-color: $main-color;
 }
 
 .hangman__hand2 {
-	@include bodyPartShape(30px, 3px, absolute, 86px, 71px);
-	background-color: $main-color;
+  @include bodyPartShape(30px, 3px, absolute, 86px, 71px);
+  background-color: $main-color;
 }
 @media screen and (min-width: 600px) {
-	%buttons-styles {
-		background: $text-color;
-		padding: 1rem;
-		border-radius: 1rem;
-		color: white;
-		font-size: 1.5rem;
-	}
+  %buttons-styles {
+    background: $text-color;
+    padding: 1rem;
+    border-radius: 1rem;
+    color: white;
+    font-size: 1.5rem;
+  }
 
-	.hangman {
-		height: 250px;
-	}
+  .hangman {
+    height: 250px;
+  }
 
-	.hangman__hanger {
-		width: 150px;
-		height: 200px;
-		border: 10px solid $main-color;
-		border-right: none;
-	}
+  .hangman__hanger {
+    width: 150px;
+    height: 200px;
+    border: 10px solid $main-color;
+    border-right: none;
+  }
 
-	.hangman__hanger:after {
-		width: 10px;
-	}
+  .hangman__hanger:after {
+    width: 10px;
+  }
 
-	.hangman__head {
-		@include bodyPartShape(35px, 35px, absolute, 39px, 132px);
-		border: 5px solid $main-color;
-	}
+  .hangman__head {
+    @include bodyPartShape(35px, 35px, absolute, 39px, 132px);
+    border: 5px solid $main-color;
+  }
 
-	.hangman__body {
-		@include bodyPartShape(5px, 70px, absolute, 80px, 152px);
-	}
+  .hangman__body {
+    @include bodyPartShape(5px, 70px, absolute, 80px, 152px);
+  }
 
-	.hangman__leg1 {
-		@include bodyPartShape(5px, 50px, absolute, 140px, 140px);
-	}
+  .hangman__leg1 {
+    @include bodyPartShape(5px, 50px, absolute, 140px, 140px);
+  }
 
-	.hangman__leg2 {
-		@include bodyPartShape(5px, 50px, absolute, 140px, 165px);
-	}
+  .hangman__leg2 {
+    @include bodyPartShape(5px, 50px, absolute, 140px, 165px);
+  }
 
-	.hangman__hand1 {
-		@include bodyPartShape(50px, 5px, absolute, 110px, 155px);
-	}
+  .hangman__hand1 {
+    @include bodyPartShape(50px, 5px, absolute, 110px, 155px);
+  }
 
-	.hangman__hand2 {
-		@include bodyPartShape(50px, 5px, absolute, 110px, 110px);
-	}
-	.used {
-		pointer-events: none;
-		background-color: red;
-	}
+  .hangman__hand2 {
+    @include bodyPartShape(50px, 5px, absolute, 110px, 110px);
+  }
+  .used {
+    pointer-events: none;
+    background-color: red;
+  }
 }
