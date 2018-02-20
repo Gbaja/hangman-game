@@ -1,6 +1,11 @@
 body {
   background-image: url("./assets/paperbackground.jpg"); }
 
+p {
+  font-size: 1.5rem;
+  color: red;
+  text-align: center; }
+
 .play__button, .buttons__letters, .buttons__new-word, .buttons__hint {
   background: rebeccapurple;
   padding: 1rem;
@@ -39,7 +44,8 @@ body {
     outline: none;
     background-color: inherit;
     width: 3rem;
-    margin-right: 0.3rem; }
+    margin-right: 0.3rem;
+    text-align: center; }
 
 .hangman {
   height: 155px;

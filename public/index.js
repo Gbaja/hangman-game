@@ -9,7 +9,10 @@ const alphabets_btns = document.getElementById("alphabets_btns");
 const play_area = document.getElementsByClassName("game-features")[0];
 const game_intro = document.getElementsByClassName("game-intro")[0];
 const replay_btn = document.getElementById("replay_btn");
+const hint_btn = document.getElementsByClassName("buttons__hint")[0];
+const hint_para = document.getElementById("hint_para");
 let word_to_guess;
+let hint;
 let num_of_lives = 0;
 
 const apiRequestForWord = () =>
@@ -22,26 +25,30 @@ const requestResultAction = () => {
     })
     .then(response_text => {
       const randomNumber = Math.floor(Math.random() * response_text.length);
-      console.log(response_text[randomNumber].name);
-      return response_text[randomNumber].name;
+      return [
+        response_text[randomNumber].name,
+        response_text[randomNumber].capital
+      ];
     })
     .then(word => {
-      word_to_guess = word.toUpperCase();
+      word_to_guess = word[0].toUpperCase();
+      hint = word[1].toUpperCase();
       game_intro.classList.add("no-play");
       hangman.classList.remove("no-play");
       alphabets_btns.classList.remove("no-play");
-
-      wordInput(word);
+      wordInput(word[0]);
     })
     .catch(err => {
       console.error(err);
     });
 };
 
-start_game_btn.addEventListener("click", requestResultAction);
-//replay_btn.addEventListener("click", requestResultAction)
+const showHint = () => {
+  hint_para.textContent = `Capital of the state is: ${hint}`;
+};
 
-//requestResultAction();
+start_game_btn.addEventListener("click", requestResultAction);
+hint_btn.addEventListener("click", showHint);
 
 const wordInput = word => {
   const word_array = word.split("");
@@ -75,7 +82,7 @@ const fillInAnswer = (placeholder_word, placeholder_letter) => {
       : false;
   });
   checkIsCorrectAnswer()
-    ? ((gameover_para.textContent = `You guessed right, the correct word is ${word_to_guess}`),
+    ? ((gameover_para.textContent = `You guessed right, the correct state is ${word_to_guess}`),
       live_para.classList.add("no-play"),
       gameOver())
     : false;
@@ -83,7 +90,7 @@ const fillInAnswer = (placeholder_word, placeholder_letter) => {
 
 const liveFinished = live => {
   live === 6
-    ? ((gameover_para.textContent = "GAME OVER! The word is " + word_to_guess),
+    ? ((gameover_para.textContent = "GAME OVER! The state is " + word_to_guess),
       live_para.classList.add("no-play"),
       gameOver())
     : false;
@@ -102,6 +109,4 @@ const gameOver = () => {
   live_para.classList.add("no-play");
   alphabets_btns.classList.add("no-play");
   inputs_container.classList.add("no-play");
-  //replay_btn.classList.remove("no-play"),
-  //  replay_btn.addEventListener("click", requestResultAction)
 };
