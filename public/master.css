@@ -45,7 +45,8 @@ p {
     background-color: inherit;
     width: 3rem;
     margin-right: 0.3rem;
-    text-align: center; }
+    text-align: center;
+    font-size: 1.6rem; }
 
 .hangman {
   height: 155px;
